@@ -38,11 +38,14 @@ public class Invoice {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        this.quantity = (quantity > 0) ? quantity : 0;
     }
 
     public void setPricePerItem(double pricePerItem) {
-        this.pricePerItem = pricePerItem;
+        this.pricePerItem = (pricePerItem > 0.0) ? pricePerItem : 0.0;
+    }
+    public double getInvoiceAmount() {
+        return quantity * pricePerItem;
     }
 }
 
