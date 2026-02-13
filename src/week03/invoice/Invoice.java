@@ -6,11 +6,11 @@ public class Invoice {
     private int quantity;
     private double pricePerItem;
 
-    public Invoice(double pricePerItem, int quantity, String partDescription, String partNumber) {
-        this.pricePerItem = pricePerItem;
-        this.quantity = quantity;
-        this.partDescription = partDescription;
+    public Invoice(String partNumber, String partDescription, int quantity, double pricePerItem) {
         this.partNumber = partNumber;
+        this.partDescription = partDescription;
+        setQuantity(quantity);
+        setPricePerItem(pricePerItem);
     }
 
     public String getPartNumber() {
@@ -44,9 +44,8 @@ public class Invoice {
     public void setPricePerItem(double pricePerItem) {
         this.pricePerItem = (pricePerItem > 0.0) ? pricePerItem : 0.0;
     }
+
     public double getInvoiceAmount() {
-        return quantity * pricePerItem;
+        return getQuantity() * getPricePerItem();
     }
 }
-
-
